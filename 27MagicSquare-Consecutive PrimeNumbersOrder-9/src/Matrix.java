@@ -12,13 +12,23 @@ public class Matrix {
     }
 
     public void createConsecutivePrimeMatrix (int max) {
+        // Create ArrayList with prime numbers until max
         ArrayList<Integer> prime = PrimeGenerator.createPrimeList(max);
 
         // Random-Start-Index
         Random r = new Random();
-        r.nextInt(prime.size()-(size*size));
+        int start = r.nextInt(prime.size()-(size*size));
 
-
+        // Randomly fill in the primes start with the Random-Start-Index
+        int height = 0;
+        int width = 0;
+        for(int j = start; j < (start+(size*size)); j++) {
+            do {
+                height = r.nextInt(size - 1);
+                width = r.nextInt(size - 1);
+            } while (matrix[width][height] != 0);
+            matrix[width][height] = j;
+        }
     }
 
 }
