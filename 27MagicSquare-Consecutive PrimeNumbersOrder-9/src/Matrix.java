@@ -2,17 +2,23 @@ import java.util.ArrayList;
 
 public class Matrix {
 
-    public int[][] matrix;
+    private int[][] matrix;
     private int size;
 
-    public Matrix (int n){
-        matrix = new int[n][n];
-        this.size = n;
+    private Matrix (){
+        this.size = Configuration.instance.matrixSize;
+        matrix = new int[size][size];
+
     }
 
-    public void createConsecutivePrimeMatrix (int max) {
+    public Matrix(int[][] m){
+        matrix = m;
+        this.size = m.length;
+    }
+
+    public void createConsecutivePrimeMatrix () {
         // Create ArrayList with prime numbers until max
-        ArrayList<Integer> prime = PrimeGenerator.createPrimeList(max);
+        ArrayList<Integer> prime = PrimeGenerator.createPrimeList();
 
         // Random-Start-Index
         MersenneTwisterFast r = new MersenneTwisterFast();
@@ -30,9 +36,9 @@ public class Matrix {
         }
     }
 
-    public static Matrix generate(int n, int max) {
-        Matrix matrix = new Matrix(n);
-        matrix.createConsecutivePrimeMatrix(max);
+    public static Matrix generate() {
+        Matrix matrix = new Matrix();
+        matrix.createConsecutivePrimeMatrix();
         return  matrix;
     }
 
@@ -86,6 +92,15 @@ public class Matrix {
     public int getSize() {
         return size;
     }
+
+    public int[][] getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
+    }
+
     @Override
     public String toString() {
         String output = "";

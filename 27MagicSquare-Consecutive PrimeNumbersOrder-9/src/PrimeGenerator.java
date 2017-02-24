@@ -2,13 +2,15 @@ import java.util.ArrayList;
 
 public class PrimeGenerator {
 
-    public static ArrayList<Integer> createPrimeList(int max){
+    public static ArrayList<Integer> createPrimeList(){
         ArrayList<Integer> primes = new ArrayList<Integer>();
-        for(int i = 2; i <= max; i++) {
+
+        for(int i = 2; i <= Configuration.instance.maxPrimeArea; i++) {
             if(isPrime(i)==true){
                 primes.add(i);
             }
         }
+
         return primes;
     }
 

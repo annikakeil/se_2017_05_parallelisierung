@@ -1,9 +1,21 @@
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+
 public class Task implements Runnable {
 
-    private Matrix matrix = Matrix.generate(9, 1000);
+    private Matrix matrix = Matrix.generate();
+    private CyclicBarrier cyclicBarrier;
+    private Application application;
+
+    public Task(Application application, CyclicBarrier cyclicBarrier) {
+        this.application = application;
+        this.cyclicBarrier = cyclicBarrier;
+    }
+
 
     private void doStrategy() {
         MersenneTwisterFast random = new MersenneTwisterFast();
+
         float value = random.nextFloat();
         IStrategy strategy;
         if (value < 0.5) {
@@ -28,7 +40,15 @@ public class Task implements Runnable {
         }
 
         if (matrix.isMagic()) {
-            System.out.println(matrix);
+            application.foundMagic(matrix);
+        }
+
+        try {
+            cyclicBarrier.await();
+        } catch (InterruptedException iex) {
+            System.out.println(iex.getMessage());
+        } catch (BrokenBarrierException bbex) {
+            System.out.println(bbex.getMessage());
         }
     }
 }

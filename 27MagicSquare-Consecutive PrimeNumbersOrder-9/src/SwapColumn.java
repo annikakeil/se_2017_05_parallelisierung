@@ -1,17 +1,22 @@
-public class SwapColumn implements IStrategy{
+public class SwapColumn implements IStrategy {
 
     @Override
-    public Matrix doStrategy(Matrix m) {
+    public Matrix doStrategy(Matrix matrix) {
+
         MersenneTwisterFast random = new MersenneTwisterFast();
-        int columnIndex1 = random.nextInt(m.matrix.length);
-        int columnIndex2 = random.nextInt(m.matrix.length);
 
-        int[] column1 = m.getRow(columnIndex1);
-        int[] column2 = m.getRow(columnIndex2);
+        int columnIndex1 = random.nextInt(matrix.getMatrix().length);
+        int columnIndex2 = 0;
+        do {
+            columnIndex2 = random.nextInt(matrix.getMatrix().length);
+        } while (columnIndex1 == columnIndex2);
 
-        m.setRow(columnIndex1, column2);
-        m.setRow(columnIndex2, column1);
+        int[] column1 = matrix.getRow(columnIndex1);
+        int[] column2 = matrix.getRow(columnIndex2);
 
-        return m;
+        matrix.setRow(columnIndex1, column2);
+        matrix.setRow(columnIndex2, column1);
+
+        return matrix;
     }
 }
