@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class ShakeMatrix implements IStrategy{
+
+    private Random random = new MersenneTwister();
 
     @Override
     public Matrix doStrategy(Matrix m) {
@@ -14,7 +17,7 @@ public class ShakeMatrix implements IStrategy{
             }
         }
 
-        Collections.shuffle(temp, new MersenneTwister());
+        Collections.shuffle(temp, random);
 
         int t = 0;
         for (int i = 0; i < m.getSize(); i++){
@@ -24,6 +27,8 @@ public class ShakeMatrix implements IStrategy{
             }
         }
 
-        return new Matrix(matrix);
+        m.setMatrix(matrix);
+
+        return m;
     }
 }

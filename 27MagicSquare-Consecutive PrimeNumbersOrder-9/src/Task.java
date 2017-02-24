@@ -6,6 +6,11 @@ public class Task implements Runnable {
     private Matrix matrix = Matrix.generate();
     private CyclicBarrier cyclicBarrier;
     private Application application;
+    private MersenneTwisterFast random = new MersenneTwisterFast();
+    private IStrategy shakeStrategy = new ShakeMatrix();
+    private IStrategy columnStrategy = new SwapColumn();
+    private IStrategy lineStrategy = new SwapLines();
+    private IStrategy diagonalStrategy = new SwapDiagonal();
 
     public Task(Application application, CyclicBarrier cyclicBarrier) {
         this.application = application;
@@ -14,18 +19,17 @@ public class Task implements Runnable {
 
 
     private void doStrategy() {
-        MersenneTwisterFast random = new MersenneTwisterFast();
 
         float value = random.nextFloat();
         IStrategy strategy;
-        if (value < 0.5) {
-            strategy = new ShakeMatrix();
-        } else if (value < 0.67) {
-            strategy = new SwapColumn();
-        } else if(value < 0.84) {
-            strategy = new SwapLines();
+        if (value < Configuration.instance.probShake) {
+            strategy = shakeStrategy;
+        } else if (value < (Configuration.instance.probColumn + Configuration.instance.probShake)) {
+            strategy = columnStrategy;
+        } else if(value < (Configuration.instance.probLine + (Configuration.instance.probColumn + Configuration.instance.probShake))) {
+            strategy = lineStrategy;
         } else {
-            strategy = new SwapDiagonal();
+            strategy = diagonalStrategy;
         }
 
         matrix = strategy.doStrategy(matrix);

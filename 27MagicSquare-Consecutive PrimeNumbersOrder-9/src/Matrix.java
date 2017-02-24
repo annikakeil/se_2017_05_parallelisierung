@@ -1,9 +1,11 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Matrix {
 
     private int[][] matrix;
     private int size;
+    private MersenneTwisterFast random = new MersenneTwisterFast();
 
     private Matrix (){
         this.size = Configuration.instance.matrixSize;
@@ -21,18 +23,17 @@ public class Matrix {
         ArrayList<Integer> prime = PrimeGenerator.createPrimeList();
 
         // Random-Start-Index
-        MersenneTwisterFast r = new MersenneTwisterFast();
-        int start = r.nextInt(prime.size()-(size*size)+1);
+        int start = random.nextInt(prime.size()-(size*size)+1);
 
         // Randomly fill in the primes start with the Random-Start-Index
         int height = 0;
         int width = 0;
         for(int j = start; j < (start+(size*size)); j++) {
             do {
-                height = r.nextInt(size);
-                width = r.nextInt(size);
+                height = random.nextInt(size);
+                width = random.nextInt(size);
             } while (matrix[width][height] != 0);
-            matrix[width][height] = j;
+            matrix[width][height] = prime.get(j);
         }
     }
 

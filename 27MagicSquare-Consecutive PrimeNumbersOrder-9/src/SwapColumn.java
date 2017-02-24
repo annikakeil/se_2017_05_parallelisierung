@@ -1,9 +1,9 @@
 public class SwapColumn implements IStrategy {
 
+    private MersenneTwisterFast random = new MersenneTwisterFast();
+
     @Override
     public Matrix doStrategy(Matrix matrix) {
-
-        MersenneTwisterFast random = new MersenneTwisterFast();
 
         int columnIndex1 = random.nextInt(matrix.getMatrix().length);
         int columnIndex2 = 0;

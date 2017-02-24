@@ -1,11 +1,12 @@
 public class SwapLines  implements IStrategy{
 
+    private MersenneTwisterFast random = new MersenneTwisterFast();
+
     @Override
     public Matrix doStrategy(Matrix m) {
 
         int[][] matrix = m.getMatrix();
 
-        MersenneTwisterFast random = new MersenneTwisterFast();
         int line1 = random.nextInt(matrix.length);
         int line2 = 0;
         do {
