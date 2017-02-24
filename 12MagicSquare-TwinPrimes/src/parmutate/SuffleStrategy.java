@@ -1,21 +1,37 @@
 package parmutate;
 
 import math.Matrix;
+import random.MersenneTwister;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class SuffleStrategy implements IStrategy {
+
+    private Random twister = new MersenneTwister();
+
     @Override
     public Matrix doPermutation(Matrix matrix) {
-        List<int[]> matrixValues = new ArrayList<int[]>();
-        matrixValues.addAll(Arrays.asList(matrix.getMatrix()));
+        int[][] matrixValues = matrix.getMatrix();
 
-        int[][] newMatrixValues = new int[matrixValues.size()][matrixValues.size()];
-        Collections.shuffle(matrixValues);
-        matrixValues.toArray(newMatrixValues);
-        return new Matrix(newMatrixValues);
+        List<Integer> values = new ArrayList<Integer>();
+        for (int width = 0; width < matrixValues.length; width++) {
+            for (int height = 0; height < matrixValues.length; height++) {
+                values.add(matrixValues[width][height]);
+            }
+        }
+
+        Collections.shuffle(values, twister);
+
+        int index = 0;
+        for (int width = 0; width < matrixValues.length; width++) {
+            for (int height = 0; height < matrixValues.length; height++) {
+                matrixValues[width][height] = values.get(index);
+                index++;
+            }
+        }
+
+        matrix.setMatrix(matrixValues);
+
+        return matrix;
     }
 }

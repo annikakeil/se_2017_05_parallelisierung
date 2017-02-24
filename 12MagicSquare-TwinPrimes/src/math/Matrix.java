@@ -1,18 +1,18 @@
 package math;
 
 
-import sun.applet.Main;
+import config.Configuration;
+import random.MersenneTwisterFast;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
-public class Matrix {
+public class Matrix implements Comparable<Matrix> {
 
-    int matrix[][] = new int[4][4]; // TODO Configuration
+    int matrix[][] = new int[Configuration.instance.matrixWidth][Configuration.instance.matrixHeight];
 
-    public Matrix() {}
+    private Matrix() {}
 
     public Matrix(int[][] matrix) {
         this.matrix = matrix;
@@ -20,11 +20,13 @@ public class Matrix {
 
     public boolean isValid() {
         int value = sumColumn(0);
-        for (int i = 0; i < 4; i++) {
+
+        for (int i = 0; i < Configuration.instance.matrixWidth; i++) {
             if (value != sumColumn(i) || value != sumRow(i)) {
                 return false;
             }
         }
+
         return true;
     }
 
@@ -46,14 +48,14 @@ public class Matrix {
 
     public int getValue() {
         int sum = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Configuration.instance.matrixWidth; i++) {
             sum += sumRow(i);
         }
         return sum;
     }
 
     public void fillEmpty(int value) {
-        Random random = new Random();
+        MersenneTwisterFast random = new MersenneTwisterFast();
         while (true) {
             int width = random.nextInt(matrix.length);
             int height = random.nextInt(matrix.length);
@@ -65,10 +67,11 @@ public class Matrix {
     }
 
     public static Matrix generate() {
-        List<TwinPair> pairs = TwinPair.getPairs(1000);
+        List<TwinPair> pairs = TwinPair.getPairs(Configuration.instance.maxPrimeNumber);
         Collections.shuffle(pairs);
         Matrix matrix = new Matrix();
-        for (TwinPair pair : pairs.stream().limit(8).collect(Collectors.toList())) {
+        int pairCount = Configuration.instance.matrixWidth * Configuration.instance.matrixWidth / 2;
+        for (TwinPair pair : pairs.stream().limit(pairCount).collect(Collectors.toList())) {
             matrix.fillEmpty(pair.getFirst());
             matrix.fillEmpty(pair.getSecond());
         }
@@ -88,5 +91,19 @@ public class Matrix {
 
     public int[][] getMatrix() {
         return matrix;
+    }
+
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
+    }
+
+    @Override
+    public int compareTo(Matrix matrix) {
+        if (getValue() < matrix.getValue()) {
+            return -1;
+        } else if (getValue() > matrix.getValue()) {
+            return 1;
+        }
+        return 0;
     }
 }
