@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Matrix {
 
@@ -24,7 +25,20 @@ public class Matrix {
 
         // Random-Start-Index
         int start = random.nextInt(prime.size()-(size*size)+1);
+        List<Integer> input = prime.subList(start, start + (size*size));
 
+        int t = 0;
+        for (int i = 0; i < size; i++){
+            for (int j = 0; j < size; j++){
+                matrix[i][j] = input.get(t);
+                t++;
+            }
+        }
+
+        new ShakeMatrix().doStrategy(this);
+
+
+        /*
         // Randomly fill in the primes start with the Random-Start-Index
         int height = 0;
         int width = 0;
@@ -35,6 +49,8 @@ public class Matrix {
             } while (matrix[width][height] != 0);
             matrix[width][height] = prime.get(j);
         }
+        */
+
     }
 
     public static Matrix generate() {

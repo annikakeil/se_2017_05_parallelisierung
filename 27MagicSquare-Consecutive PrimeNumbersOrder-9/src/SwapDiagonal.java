@@ -20,6 +20,8 @@ public class SwapDiagonal implements IStrategy{
             matrix[k][m.getSize() -1 -k] = rl[k];
         }
 
-        return new Matrix(matrix);
+        m.setMatrix(matrix);
+
+        return m;
     }
 }

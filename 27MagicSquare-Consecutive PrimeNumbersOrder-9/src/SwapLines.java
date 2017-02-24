@@ -17,6 +17,8 @@ public class SwapLines  implements IStrategy{
         matrix[line1] = matrix[line2];
         matrix[line2] = temp;
 
-        return new Matrix(matrix);
+        m.setMatrix(matrix);
+
+        return m;
     }
 }
