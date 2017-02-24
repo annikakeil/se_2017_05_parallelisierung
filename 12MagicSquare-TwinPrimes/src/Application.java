@@ -1,6 +1,7 @@
 import math.Matrix;
 import math.TwinPair;
 import parmutate.IStrategy;
+import parmutate.SuffleStrategy;
 import parmutate.SwapColumnStrategy;
 
 public class Application {
@@ -13,7 +14,7 @@ public class Application {
 
         System.out.println(matrix);
 
-        IStrategy s = new SwapColumnStrategy();
+        IStrategy s = new SuffleStrategy();
         matrix = s.doPermutation(matrix);
 
         System.out.println(matrix);

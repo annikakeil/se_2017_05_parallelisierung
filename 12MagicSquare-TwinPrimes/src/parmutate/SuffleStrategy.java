@@ -10,11 +10,12 @@ import java.util.List;
 public class SuffleStrategy implements IStrategy {
     @Override
     public Matrix doPermutation(Matrix matrix) {
-        /*List<int[]> pair=new ArrayList<int[]>();
-        pair.addAll(Arrays.asList(matrix.getMatrix()));
-        Collections.shuffle(pair);
-        new Matrix(pair.toArray());
-        */
-        return null;
+        List<int[]> matrixValues = new ArrayList<int[]>();
+        matrixValues.addAll(Arrays.asList(matrix.getMatrix()));
+
+        int[][] newMatrixValues = new int[matrixValues.size()][matrixValues.size()];
+        Collections.shuffle(matrixValues);
+        matrixValues.toArray(newMatrixValues);
+        return new Matrix(newMatrixValues);
     }
 }
