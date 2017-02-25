@@ -1,0 +1,30 @@
+// 100 Primzahlen, 1000 : 1000, 0.5
+IntSummaryStatistics{count=19, sum=4752, min=72, average=250,105263, max=744}
+IntSummaryStatistics{count=45, sum=15104, min=72, average=335,644444, max=984}
+IntSummaryStatistics{count=27, sum=13496, min=72, average=499,851852, max=912}
+IntSummaryStatistics{count=28, sum=14440, min=80, average=515,714286, max=1056}
+IntSummaryStatistics{count=24, sum=9704, min=80, average=404,333333, max=840}
+IntSummaryStatistics{count=26, sum=11912, min=80, average=458,153846, max=1056}
+IntSummaryStatistics{count=81, sum=34216, min=72, average=422,419753, max=1056}
+IntSummaryStatistics{count=11, sum=4896, min=80, average=445,090909, max=936}
+IntSummaryStatistics{count=23, sum=9984, min=80, average=434,086957, max=1056}
+IntSummaryStatistics{count=24, sum=9720, min=80, average=405,000000, max=888}
+IntSummaryStatistics{count=53, sum=20656, min=72, average=389,735849, max=1104}
+IntSummaryStatistics{count=22, sum=11064, min=136, average=502,909091, max=1008}
+IntSummaryStatistics{count=23, sum=8296, min=80, average=360,695652, max=864}
+
+
+// 100 Primzahlen, 100 : 10000, 0.5
+IntSummaryStatistics{count=26, sum=10152, min=72, average=390,461538, max=912}
+IntSummaryStatistics{count=33, sum=13568, min=72, average=411,151515, max=912}
+IntSummaryStatistics{count=15, sum=7184, min=80, average=478,933333, max=1104}
+IntSummaryStatistics{count=17, sum=6144, min=128, average=361,411765, max=888}
+IntSummaryStatistics{count=33, sum=13984, min=72, average=423,757576, max=936}
+IntSummaryStatistics{count=15, sum=5472, min=128, average=364,800000, max=912}
+IntSummaryStatistics{count=25, sum=8680, min=72, average=347,200000, max=792}
+IntSummaryStatistics{count=43, sum=20624, min=80, average=479,627907, max=936}
+IntSummaryStatistics{count=19, sum=7616, min=80, average=400,842105, max=816}
+IntSummaryStatistics{count=14, sum=5632, min=96, average=402,285714, max=984}
+
+// 100 Primzahlen, 10 : 100000, 0.5
+IntSummaryStatistics{count=12, sum=4248, min=120, average=354,000000, max=816}
