@@ -18,11 +18,9 @@ public class TaskObserver implements ITaskListener {
         _mutex.lock();
         matrizen.add(matrix);
         _mutex.unlock();
-
-        System.out.println("foundSolution");
     }
 
-    public List<Matrix> getMatrix() {
+    public List<Matrix> getResults() {
         Collections.sort(matrizen);
         return matrizen;
     }

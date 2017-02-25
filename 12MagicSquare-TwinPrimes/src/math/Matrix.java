@@ -2,10 +2,12 @@ package math;
 
 
 import config.Configuration;
+import parmutate.ShuffleStrategy;
 import random.MersenneTwisterFast;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Matrix implements Comparable<Matrix> {
@@ -55,26 +57,31 @@ public class Matrix implements Comparable<Matrix> {
     }
 
     public void fillEmpty(int value) {
-        MersenneTwisterFast random = new MersenneTwisterFast();
-        while (true) {
-            int width = random.nextInt(matrix.length);
-            int height = random.nextInt(matrix.length);
-            if (matrix[width][height] == 0) {
-                matrix[width][height] = value;
-                break;
+        for (int width = 0; width < matrix.length; width++) {
+            for (int height = 0; height < matrix.length; height++) {
+                if (matrix[width][height] == 0) {
+                    matrix[width][height] = value;
+                    return;
+                }
             }
         }
     }
 
     public static Matrix generate() {
+        Random random = new MersenneTwisterFast();
         List<TwinPair> pairs = TwinPair.getPairs(Configuration.instance.maxPrimeNumber);
         Collections.shuffle(pairs);
         Matrix matrix = new Matrix();
         int pairCount = Configuration.instance.matrixWidth * Configuration.instance.matrixWidth / 2;
-        for (TwinPair pair : pairs.stream().limit(pairCount).collect(Collectors.toList())) {
+        for (int i = 0; i < pairCount; i++) {
+            TwinPair pair = pairs.get(random.nextInt(pairs.size()));
             matrix.fillEmpty(pair.getFirst());
             matrix.fillEmpty(pair.getSecond());
         }
+
+        // Alles durcheinander wirbeln
+        matrix = new ShuffleStrategy().doPermutation(matrix);
+
         return matrix;
     }
 

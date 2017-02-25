@@ -4,8 +4,6 @@ import math.Matrix;
 import parmutate.*;
 import random.MersenneTwisterFast;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
@@ -17,7 +15,7 @@ public class Task implements Runnable {
     private Matrix matrix;
     private TaskMonitor monitor;
 
-    private SuffleStrategy suffleStrategy = new SuffleStrategy();
+    private ShuffleStrategy suffleStrategy = new ShuffleStrategy();
     private SwapDiagonalStrategy swapDiagonalStrategy = new SwapDiagonalStrategy();
     private SwapColumnStrategy swapColumnStrategy = new SwapColumnStrategy();
     private SwapRowStrategy swapRowStrategy = new SwapRowStrategy();
@@ -51,17 +49,15 @@ public class Task implements Runnable {
 
     @Override
     public void run() {
-        for (int j = 0; j < 1000; j++) {
+        for (int j = 0; j < 10000; j++) {
             int i = 0;
 
-            while (i < 1000 && !matrix.isValid()) {
+            while (i < 100 && !matrix.isValid()) {
                 doStragety();
                 i++;
             }
 
             if (matrix.isValid()) {
-                System.out.println("Found!");
-
                 monitor.trigger(matrix);
             }
 

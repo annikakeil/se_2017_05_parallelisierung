@@ -1,5 +1,4 @@
 import math.Matrix;
-import task.ITaskListener;
 import task.Task;
 import task.TaskMonitor;
 import task.TaskObserver;
@@ -7,6 +6,7 @@ import task.TaskObserver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CyclicBarrier;
+import java.util.stream.Collectors;
 
 public class Application {
 
@@ -28,7 +28,7 @@ public class Application {
                 Thread thread = new Thread(new Task(taskMonitor, cyclicBarrier));
                 thread.start();
                 threads.add(thread);
-                System.out.println("Starting Thread [" + i + "]: " + core);
+                //System.out.println("Starting Thread [" + i + "]: " + core);
             }
 
             for (Thread thread : threads) {
@@ -42,17 +42,24 @@ public class Application {
     }
 
     public void print() {
-        for (Matrix matrix : taskObserver.getMatrix()) {
+        /*for (Matrix matrix : taskObserver.getResults()) {
             System.out.println("Matix:");
             System.out.println(matrix);
             System.out.println("Matrix-Value:" + matrix.getValue());
             System.out.println();
         }
+
+        System.out.println("Count: " + taskObserver.getResults().size());*/
+        System.out.println(
+                taskObserver.getResults().stream().collect(Collectors.summarizingInt((r) -> r.getValue()))
+        );
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Application app = new Application();
-        app.execute();
-        app.print();
+        for (int i = 0; i < 10; i++) {
+            Application app = new Application();
+            app.execute();
+            app.print();
+        }
     }
 }

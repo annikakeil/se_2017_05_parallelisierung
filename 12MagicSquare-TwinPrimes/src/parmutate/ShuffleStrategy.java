@@ -2,12 +2,13 @@ package parmutate;
 
 import math.Matrix;
 import random.MersenneTwister;
+import random.MersenneTwisterFast;
 
 import java.util.*;
 
-public class SuffleStrategy implements IStrategy {
+public class ShuffleStrategy implements IStrategy {
 
-    private Random twister = new MersenneTwister();
+    private Random twister = new MersenneTwisterFast();
 
     @Override
     public Matrix doPermutation(Matrix matrix) {
