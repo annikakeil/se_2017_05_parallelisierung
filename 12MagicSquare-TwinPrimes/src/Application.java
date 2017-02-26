@@ -29,7 +29,7 @@ public class Application {
                 Thread thread = new Thread(new Task(taskMonitor, cyclicBarrier));
                 thread.start();
                 threads.add(thread);
-                System.out.println("Starting Thread [" + i + "]: " + core);
+                //System.out.println("Starting Thread [" + i + "]: " + core);
             }
 
             for (Thread thread : threads) {
