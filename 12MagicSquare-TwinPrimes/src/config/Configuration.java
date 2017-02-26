@@ -7,6 +7,7 @@ public enum Configuration {
 
     public int matrixWidth = 4;
     public int matrixHeight = 4;
-    private int threadsCount = 1000;
-    private int threadIterationCount = 1000000;
+    public int threadsCount = 1000;
+    public int threadIterationCount = 1000000;
+    public int threadIterationsEachMatrix = 100;
 }

@@ -1,3 +1,4 @@
+import config.Configuration;
 import math.Matrix;
 import task.Task;
 import task.TaskMonitor;
@@ -19,7 +20,7 @@ public class Application {
 
     public void execute() {
         int cpuCores = Runtime.getRuntime().availableProcessors();
-        for (int i = 0; i < (1000 / cpuCores); i++) {
+        for (int i = 0; i < (Configuration.instance.threadsCount / cpuCores); i++) {
             List<Thread> threads = new ArrayList<Thread>();
 
             final CyclicBarrier cyclicBarrier = new CyclicBarrier(cpuCores);
@@ -28,7 +29,7 @@ public class Application {
                 Thread thread = new Thread(new Task(taskMonitor, cyclicBarrier));
                 thread.start();
                 threads.add(thread);
-                //System.out.println("Starting Thread [" + i + "]: " + core);
+                System.out.println("Starting Thread [" + i + "]: " + core);
             }
 
             for (Thread thread : threads) {
@@ -55,11 +56,40 @@ public class Application {
         );
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void run() {
         for (int i = 0; i < 10; i++) {
             Application app = new Application();
             app.execute();
             app.print();
         }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Configuration.instance.threadIterationsEachMatrix = 10;
+        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
+        run();
+
+
+        Configuration.instance.threadIterationsEachMatrix = 100;
+        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
+        run();
+
+
+        Configuration.instance.threadIterationsEachMatrix = 500;
+        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
+        run();
+
+
+        Configuration.instance.threadIterationsEachMatrix = 1000;
+        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
+        run();
+
+        Configuration.instance.threadIterationsEachMatrix = 10000;
+        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
+        run();
+
+        Configuration.instance.threadIterationsEachMatrix = 100000;
+        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
+        run();
     }
 }

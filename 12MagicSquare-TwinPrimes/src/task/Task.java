@@ -1,5 +1,6 @@
 package task;
 
+import config.Configuration;
 import math.Matrix;
 import parmutate.*;
 import random.MersenneTwisterFast;
@@ -49,10 +50,11 @@ public class Task implements Runnable {
 
     @Override
     public void run() {
-        for (int j = 0; j < 10000; j++) {
+        int destination = Configuration.instance.threadIterationCount / Configuration.instance.threadIterationsEachMatrix;
+        for (int j = 0; j < destination; j++) {
             int i = 0;
 
-            while (i < 100 && !matrix.isValid()) {
+            while (i < Configuration.instance.threadIterationsEachMatrix && !matrix.isValid()) {
                 doStragety();
                 i++;
             }
