@@ -30,7 +30,7 @@ public class Application {
                 Thread thread = new Thread(new Task(taskMonitor, cyclicBarrier));
                 thread.start();
                 threads.add(thread);
-                //System.out.println("Starting Thread [" + i + "]: " + core);
+                System.out.println("Starting Thread [" + i + "]: " + core);
             }
 
             for (Thread thread : threads) {
@@ -44,57 +44,21 @@ public class Application {
     }
 
     public void print() {
-        /*for (Matrix matrix : taskObserver.getResults()) {
-            System.out.println("Matix:");
-            System.out.println(matrix);
-            System.out.println("Matrix-Value:" + matrix.getValue());
-            System.out.println();
-        }
+        Matrix matrix = taskObserver.getResults().get(0);
+        System.out.println("Best Matix:");
+        System.out.println(matrix);
+        System.out.println("Matrix-Value:" + matrix.getValue());
+        System.out.println();
 
-        System.out.println("Count: " + taskObserver.getResults().size());*/
+        System.out.println("Matrix Count: " + taskObserver.getResults().size());
         System.out.println(
                 taskObserver.getResults().stream().collect(Collectors.summarizingInt((r) -> r.getValue())) + " " + taskObserver.getResults().size()
         );
     }
 
-    public static void run() {
-        for (int i = 0; i < 5; i++) {
-            Application app = new Application();
-            app.execute();
-            app.print();
-        }
-    }
-
     public static void main(String[] args) throws InterruptedException {
-        /*Configuration.instance.threadIterationsEachMatrix = 10;
-        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
-
-
-        Configuration.instance.threadIterationsEachMatrix = 100;
-        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();*/
-
-
-        Configuration.instance.threadIterationsEachMatrix = 500;
-        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
-
-
-        /*Configuration.instance.threadIterationsEachMatrix = 1000;
-        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
-
-        Configuration.instance.threadIterationsEachMatrix = 10000;
-        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
-
-        Configuration.instance.threadIterationsEachMatrix = 100000;
-        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
-
-        Configuration.instance.threadIterationsEachMatrix = 1000000;
-        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();*/
+        Application app = new Application();
+        app.execute();
+        app.print();
     }
 }

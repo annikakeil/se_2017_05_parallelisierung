@@ -1,6 +1,7 @@
 // 100 Primzahlen, 100000 : 10 , 0.5
 Iterations Each Matrix: 10
 IntSummaryStatistics{count=5705242, sum=1643120928, min=288, average=288,001969, max=480} 5705242
+IntSummaryStatistics{count=5706560, sum=1643489280, min=288, average=288,000000, max=288} 5706560
 
 // 100 Primzahlen, 100000 : 10 , 0.5
 Iterations Each Matrix: 10

@@ -3,7 +3,7 @@ package config;
 public enum Configuration {
     instance;
 
-    public int maxPrimeNumber = 100;
+    public int maxPrimeNumber = 1000;
 
     public int matrixWidth = 4;
     public int matrixHeight = 4;
