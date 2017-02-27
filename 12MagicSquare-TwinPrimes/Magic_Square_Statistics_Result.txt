@@ -21,6 +21,55 @@ IntSummaryStatistics{count=19, sum=7488, min=80, average=394,105263, max=912}
 IntSummaryStatistics{count=36, sum=18360, min=80, average=510,000000, max=1152}
 IntSummaryStatistics{count=25, sum=9120, min=72, average=364,800000, max=816}
 
+// 100 Primzahlen, 2000 : 500 , 0.5
+Iterations Each Matrix: 500
+IntSummaryStatistics{count=1615632, sum=775745496, min=288, average=480,149871, max=960} 1615632
+IntSummaryStatistics{count=1837394, sum=881949120, min=480, average=480,000000, max=480} 1837394
+IntSummaryStatistics{count=1838332, sum=882399360, min=480, average=480,000000, max=480} 1838332
+IntSummaryStatistics{count=1837405, sum=881954400, min=480, average=480,000000, max=480} 1837405
+IntSummaryStatistics{count=1837608, sum=882051840, min=480, average=480,000000, max=480} 1837608
+IntSummaryStatistics{count=1836060, sum=881308800, min=480, average=480,000000, max=480} 1836060
+IntSummaryStatistics{count=1838097, sum=882286560, min=480, average=480,000000, max=480} 1838097
+IntSummaryStatistics{count=1839093, sum=882764640, min=480, average=480,000000, max=480} 1839093
+IntSummaryStatistics{count=1836909, sum=881716320, min=480, average=480,000000, max=480} 1836909
+IntSummaryStatistics{count=1838710, sum=882580800, min=480, average=480,000000, max=480} 1838710
+
+// 100 Primzahlen, 1000 : 1000, 0.5
+Iterations Each Matrix: 1000
+IntSummaryStatistics{count=992982, sum=476631360, min=480, average=480,000000, max=480} 992982
+IntSummaryStatistics{count=992900, sum=476592000, min=480, average=480,000000, max=480} 992900
+IntSummaryStatistics{count=993222, sum=476746560, min=480, average=480,000000, max=480} 993222
+IntSummaryStatistics{count=993133, sum=476703840, min=480, average=480,000000, max=480} 993133
+IntSummaryStatistics{count=993149, sum=476711520, min=480, average=480,000000, max=480} 993149
+IntSummaryStatistics{count=992943, sum=476612640, min=480, average=480,000000, max=480} 992943
+IntSummaryStatistics{count=993140, sum=476707200, min=480, average=480,000000, max=480} 993140
+
+// 100 Primzahlen, 100 : 10000, 0.5
+Iterations Each Matrix: 10000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+IntSummaryStatistics{count=100000, sum=48000000, min=480, average=480,000000, max=480} 100000
+
+// 100 Primzahlen, 10 : 100000, 0.5
+Iterations Each Matrix: 100000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+IntSummaryStatistics{count=10000, sum=4800000, min=480, average=480,000000, max=480} 10000
+
 // 100 Primzahlen, 1000 : 1000, 0.5
 IntSummaryStatistics{count=19, sum=4752, min=72, average=250,105263, max=744}
 IntSummaryStatistics{count=45, sum=15104, min=72, average=335,644444, max=984}
