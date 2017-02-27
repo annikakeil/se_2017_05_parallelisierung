@@ -58,7 +58,7 @@ public class Application {
     }
 
     public static void run() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Application app = new Application();
             app.execute();
             app.print();
@@ -73,7 +73,7 @@ public class Application {
 
         Configuration.instance.threadIterationsEachMatrix = 100;
         System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
+        run();*/
 
 
         Configuration.instance.threadIterationsEachMatrix = 500;
@@ -81,7 +81,7 @@ public class Application {
         run();
 
 
-        Configuration.instance.threadIterationsEachMatrix = 1000;
+        /*Configuration.instance.threadIterationsEachMatrix = 1000;
         System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
         run();
 
@@ -91,14 +91,10 @@ public class Application {
 
         Configuration.instance.threadIterationsEachMatrix = 100000;
         System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();*/
+        run();
 
         Configuration.instance.threadIterationsEachMatrix = 1000000;
         System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
-
-        Configuration.instance.threadIterationsEachMatrix = 10;
-        System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
+        run();*/
     }
 }

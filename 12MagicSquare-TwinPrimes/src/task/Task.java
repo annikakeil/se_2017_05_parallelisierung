@@ -33,13 +33,13 @@ public class Task implements Runnable {
         IStrategy strategy;
 
         float value = random.nextFloat();
-        if (value < 0.1) {
+        if (value < 0.05) {
             strategy = swapFieldStrategy;
-        } else if (value < 0.2) {
+        } else if (value < 0.1) {
             strategy = swapDiagonalStrategy;
-        } else if (value < 0.3) {
+        } else if (value < 0.15) {
             strategy = swapColumnStrategy;
-        } else if (value < 0.4) {
+        } else if (value < 0.2) {
             strategy = swapRowStrategy;
         } else {
             strategy = suffleStrategy;
