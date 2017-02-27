@@ -53,7 +53,7 @@ public class Application {
 
         System.out.println("Count: " + taskObserver.getResults().size());*/
         System.out.println(
-                taskObserver.getResults().stream().collect(Collectors.summarizingInt((r) -> r.getValue()))
+                taskObserver.getResults().stream().collect(Collectors.summarizingInt((r) -> r.getValue())) + " " + taskObserver.getResults().size()
         );
     }
 
@@ -66,12 +66,12 @@ public class Application {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Configuration.instance.threadIterationsEachMatrix = 10;
+        /*Configuration.instance.threadIterationsEachMatrix = 10;
         System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
         run();
 
 
-        /*Configuration.instance.threadIterationsEachMatrix = 100;
+        Configuration.instance.threadIterationsEachMatrix = 100;
         System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
         run();*/
 
