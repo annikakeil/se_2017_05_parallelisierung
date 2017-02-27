@@ -66,22 +66,14 @@ public class Application {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Date date = new Date();
-
-        for (int i = 0; i < 1000; i++) {
-            Matrix m = Matrix.generate();
-        }
-
-        System.out.println("Duration: " + (new Date().getTime() - date.getTime()));
-
         Configuration.instance.threadIterationsEachMatrix = 10;
         System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
         run();
 
 
-        Configuration.instance.threadIterationsEachMatrix = 100;
+        /*Configuration.instance.threadIterationsEachMatrix = 100;
         System.out.println("Iterations Each Matrix: " + Configuration.instance.threadIterationsEachMatrix);
-        run();
+        run();*/
 
 
         Configuration.instance.threadIterationsEachMatrix = 500;
