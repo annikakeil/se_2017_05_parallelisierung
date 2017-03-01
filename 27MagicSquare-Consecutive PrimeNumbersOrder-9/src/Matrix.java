@@ -36,21 +36,6 @@ public class Matrix {
         }
 
         new ShakeMatrix().doStrategy(this);
-
-
-        /*
-        // Randomly fill in the primes start with the Random-Start-Index
-        int height = 0;
-        int width = 0;
-        for(int j = start; j < (start+(size*size)); j++) {
-            do {
-                height = random.nextInt(size);
-                width = random.nextInt(size);
-            } while (matrix[width][height] != 0);
-            matrix[width][height] = prime.get(j);
-        }
-        */
-
     }
 
     public static Matrix generate() {
@@ -121,10 +106,10 @@ public class Matrix {
     @Override
     public String toString() {
         String output = "";
-        for(int line = 0; line < size; line++){
-            for(int col = 0; col < size; col++){
-                if((matrix[line][col] + "").length()<3){
-                    if((matrix[line][col] + "").length()<2){
+        for (int line = 0; line < size; line++) {
+            for (int col = 0; col < size; col++) {
+                if ((matrix[line][col] + "").length() < 3) {
+                    if ((matrix[line][col] + "").length() < 2) {
                         output += " ";
                     }
                     output += " ";

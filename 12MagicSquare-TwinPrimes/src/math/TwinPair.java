@@ -27,7 +27,7 @@ public class TwinPair {
     public static synchronized List<TwinPair> getPairs(int right) {
         if (twinPairsCache.size() <= 0) {
             PrimeGenerator primeGenerator = new PrimeGenerator();
-            List<Integer> primeNumbers = primeGenerator.generatePrimes(3, right);
+            List<Integer> primeNumbers = primeGenerator.generatePrimes(2, right);
             Collections.sort(primeNumbers);
             for (int i = 0; i < primeNumbers.size() - 1; i++) {
                 int first = primeNumbers.get(i);
