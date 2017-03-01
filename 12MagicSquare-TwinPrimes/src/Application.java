@@ -52,6 +52,7 @@ public class Application {
 
         System.out.println("Matrix Count: " + taskObserver.getResults().size());
         System.out.println(
+                "Staistics:" +
                 taskObserver.getResults().stream().collect(Collectors.summarizingInt((r) -> r.getValue())) + " " + taskObserver.getResults().size()
         );
     }
