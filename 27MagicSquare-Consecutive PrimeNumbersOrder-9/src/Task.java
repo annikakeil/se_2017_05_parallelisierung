@@ -17,11 +17,11 @@ public class Task implements Runnable {
         this.cyclicBarrier = cyclicBarrier;
     }
 
-
     private void doStrategy() {
 
         float value = random.nextFloat();
         IStrategy strategy;
+
         if (value < Configuration.instance.probShake) {
             strategy = shakeStrategy;
         } else if (value < (Configuration.instance.probColumn + Configuration.instance.probShake)) {
@@ -37,14 +37,20 @@ public class Task implements Runnable {
 
     @Override
     public void run() {
-        int iteraton = 0;
-        while (iteraton < Configuration.instance.maxIterationsEachThread && !matrix.isMagic()) {
-            doStrategy();
-            iteraton++;
-        }
+        for (int i = 0; i < 100; i++) {
+            int iteraton = 0;
+            // TODO: Configuration.instance.maxIterationsEachThread
+            while (iteraton < 10000 && !matrix.isMagic()) {
+                doStrategy();
+                iteraton++;
+            }
 
-        if (matrix.isMagic()) {
-            application.foundMagic(matrix);
+            if (matrix.isMagic()) {
+                application.foundMagic(matrix);
+                break;
+            }
+
+            matrix = Matrix.generate();
         }
 
         try {
