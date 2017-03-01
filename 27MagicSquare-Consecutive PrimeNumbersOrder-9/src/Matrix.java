@@ -47,9 +47,7 @@ public class Matrix {
         int sum = arraySum(matrix[0]);
 
         // check sum of lines
-        for(int j = 1; j < size; j++){
-            // TODO mit Lambda ? int sum = new ArrayList<Integer>(line).stream().collect(Collectors.summarizingInt())
-            // new ArrayList<Integer>(arr).stream().collect(Collectors.summarizingInt()).getSum();
+        for(int j = 1; j < size; j++) {
             int sumL = arraySum(matrix[j]);
             if (sum != sumL) {
                 return false;
