@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,6 @@ public class Matrix {
     private Matrix (){
         this.size = Configuration.instance.matrixSize;
         matrix = new int[size][size];
-
     }
 
     public Matrix(int[][] m){

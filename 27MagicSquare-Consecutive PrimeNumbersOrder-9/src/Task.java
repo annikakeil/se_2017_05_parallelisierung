@@ -37,10 +37,10 @@ public class Task implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             int iteraton = 0;
             // TODO: Configuration.instance.maxIterationsEachThread
-            while (iteraton < 10000 && !matrix.isMagic()) {
+            while (iteraton < 100 && !matrix.isMagic()) {
                 doStrategy();
                 iteraton++;
             }

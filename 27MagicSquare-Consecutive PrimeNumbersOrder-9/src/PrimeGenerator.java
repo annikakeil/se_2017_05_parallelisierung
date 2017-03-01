@@ -28,8 +28,4 @@ public class PrimeGenerator {
         }
         return true;
     }
-
-
-
-
 }
